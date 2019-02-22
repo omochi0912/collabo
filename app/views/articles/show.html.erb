@@ -1,0 +1,16 @@
+<h4><%= @article.weather %></h4>
+
+<h2><%= @article.title %></h2>
+
+<%= @article.body %>
+<p>
+<%= attachment_image_tag @article, :image, :fill, 300, 300, format: 'jpeg' %>
+</p>
+<p>
+<%= @article.created_at.strftime("%Y/%m/%d%R") %>
+</p>
+
+<%= link_to "編集する", edit_article_path(@article.id) %>
+<%= link_to "削除", destroy_article_path(@article.id), method: :delete, "data-confirm" => "本当に削除しますか？" %>
+<%= link_to "戻る", articles_index_path %>
+
